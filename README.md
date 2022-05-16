@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Consumindo API com React JS e Axios.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto para consumir uma API de produtos, utilizando React JS e outras tecnologias.
 
-## Available Scripts
+**\*Projeto desenvolvido em Maio de 2022**
 
-In the project directory, you can run:
+## Assista ao Vídeo:
 
-### `npm start`
+Nesse vídeo você poderá ver a funcionalidades implantadas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[![Alt text](https://img.youtube.com/vi/Oly30VzBizA/0.jpg)](https://www.youtube.com/watch?v=Oly30VzBizA)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features Implementadas:
 
-### `npm test`
+1. Criar, listar, editar e deletar produtos
+2. Paginação e pesquisa
+3. Carregamento da listagem de produtos (Skeleton)
+4. Carregamento de dados no formulário e execução de alteração de produtos (Circular Progress)
+5. Validação do formulário
+6. Mensagens de erro
+7. Mensagens de feedback de ações (Snackbar)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologias utilizadas:
 
-### `npm run build`
+1. React JS
+2. Material UI
+3. React-Router-Dom
+4. Axios
+5. Prop-Types
+6. React-Hook-Form
+7. Yup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### React JS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Utilização de hooks personalizados e hooks do React
+   1. [useAxios](src/hooks/useAxios.js), exemplo de hook personalizado.
+   2. [useReducer](src/providers/productsProvider.js), exemplo de hook do React JS.
+2. Utilização do useReducer para lidar com um estado complexo.
+   1. [Reducer](src/reducers/productsReducer.js), reducer criado.
+   2. [useReducer](src/providers/productsProvider.js), utilização do useReducer.
+3. Utilização da Context API para prover um estado para vários componentes, de forma organizada
+   1. [productsProvider](src/providers/productsProvider.js), criação do productsProvider, utilizando (useReducer, createContext).
+   2. [useProducts](src/hooks/useProducts.js), utilizando o Context criado (useContext e productsContext).
+   3. [index.js](src/index.js), utilizando o ProductsProvider para passar os produtos pelos componentes.
+4. Renderização condicional.
+5. Componentes personalizados.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Outros
 
-### `npm run eject`
+1. Utilização de componentes prontos do Material UI, ex:
+   1. [Pagination](src/components/Pagination/index.js).
+2. Criação de Rotas com React Router Dom, navegação e utlização de parâmetros pela url, ex:
+   1. [Routes](src/routes.js)
+   2. [Edit](src/pages/Edit/index.js)
+3. Consumir API pelo Axios, ex:
+   1. [useAxios](src/hooks/useAxios.js)
+4. Utilização do Prop-Types para checagem de tipos em componentes, ex:
+   1. [Card](src/components/card/index.js)
+5. Utilização do React Hook Form para validar o formulário do produto, ex:
+   1. [formProduct](src/components/FormProduct/index.js)
+6. Utilização do Yup para criar o schema utilizado na validação do formulário, ex:
+   1. [Schema](src/components/FormProduct/schema.js)
+7. Telas de loading e feedback para o usuário, ex:
+   1. Skeleton, [Home](src/pages/Home/index.js);
+   2. Circular progress, [FormProduct](src/components/FormProduct/index.js);
+   3. Snackbar, [Edit](src/pages/Edit/index.js);
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Como Executar o Projeto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Backend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+##### Pré-requisitos
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [JSON Server](https://www.npmjs.com/package/json-server) instalado.
 
-## Learn More
+##### Como Rodar o Backend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Com o JSON Server instalado, abra o terminal na pasta do projeto e rode o seguinte comando:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  json-server --watch db.json --port 3001
+```
 
-### Code Splitting
+##### Restaurar o Banco de Dados
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Para restaurar os dados, basta copiar o conteúdo do arquivo [backup.txt](backup.txt) e usá-lo para substituir o conteúdo do arquivo [db.json](db.json)
 
-### Analyzing the Bundle Size
+### Fron-end
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Após clonar o projeto para seu computador, execute o comando para instalar as dependências:
 
-### Making a Progressive Web App
+```bash
+  npm install
+  #or
+  yarn install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Para executar o front-end, rode o comando:
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+ npm start
+ #or
+ yarn start
+```
