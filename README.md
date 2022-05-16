@@ -19,6 +19,7 @@ Nesse vídeo você poderá ver a funcionalidades implantadas.
 5. Validação do formulário
 6. Mensagens de erro
 7. Mensagens de feedback de ações (Snackbar)
+8. Rotas de navegação
 
 ## Tecnologias utilizadas:
 
